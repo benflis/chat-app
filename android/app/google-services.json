@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "506346345821",
+    "project_id": "flash-chat-77033",
+    "storage_bucket": "flash-chat-77033.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:506346345821:android:57922f76cd1b13218944b4",
+        "android_client_info": {
+          "package_name": "com.sifou.chatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "506346345821-ru6gqrhr3je92te0f2qksds61qc53514.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBH4tF2cNV-H1QGzpFnAUuEk7ZB9JuVNGU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "506346345821-ru6gqrhr3je92te0f2qksds61qc53514.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

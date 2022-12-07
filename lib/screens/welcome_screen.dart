@@ -1,9 +1,9 @@
-import 'package:chatapp/screens/login_screen.dart';
-import 'package:chatapp/screens/registration_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import '../widgets/Button.dart';
+import 'Reg_screen.dart';
+import 'log_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static String id = '/';
@@ -16,6 +16,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     with SingleTickerProviderStateMixin {
   var controller;
   Animation? animation;
+  Animation? anim;
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
       begin: Colors.blueGrey,
       end: Colors.white,
     ).animate(controller);
+
     controller.forward();
 
     // animation!.addStatusListener((status) {
@@ -53,57 +55,63 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: animation!.value,
-      body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Hero(
-                  tag: 'tag',
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
-                    height: 60,
+      body: DefaultTabController(
+        length: 2,
+        child: Container(
+          decoration: BoxDecoration(
+              image: DecorationImage(
+                  image:
+                      AssetImage('images/dark-room-with-light-background.jpg'),
+                  fit: BoxFit.cover)),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: Image(
+                    image: AssetImage('images/imagee.png'),
+                    fit: BoxFit.contain,
+                    height: 200,
+                    width: 200,
                   ),
                 ),
-                AnimatedTextKit(
-                  isRepeatingAnimation: false,
-                  animatedTexts: [
-                    TyperAnimatedText(
-                      'Flash Chat',
-                      textStyle: TextStyle(
-                        fontSize: 45.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w900,
-                        backgroundColor: Color(0xFF3af303),
-                        letterSpacing: 4,
-                      ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 30),
+                  child: Container(
+                    height: 60,
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(30),
                     ),
-                  ],
+                    child: TabBar(
+                      labelColor: Colors.black,
+                      unselectedLabelColor: Colors.grey,
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30),
+                        color: Colors.grey,
+                      ),
+                      tabs: [
+                        Tab(
+                          text: 'LOGIN',
+                        ),
+                        Tab(
+                          text: 'SIGN UP',
+                        ),
+                      ],
+                    ),
+                  ),
                 ),
+                Expanded(
+                  child: TabBarView(children: [
+                    LogScreen(),
+                    RegisterScreen(),
+                  ]),
+                )
               ],
             ),
-            SizedBox(
-              height: 48.0,
-            ),
-            Button(
-              str: 'Log in',
-              onPressed: () {
-                Navigator.pushNamed(context, LoginScreen.id);
-              },
-              color: Colors.green,
-            ),
-            Button(
-              str: 'Register',
-              onPressed: () {
-                Navigator.pushNamed(context, RegistrationScreen.id);
-              },
-              color: Colors.blue,
-            ),
-          ],
+          ),
         ),
       ),
     );

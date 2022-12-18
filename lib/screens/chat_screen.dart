@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:chatapp/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 final _fireStore = FirebaseFirestore.instance;
 User? loggedInUser;
@@ -52,7 +53,10 @@ class _ChatScreenState extends State<ChatScreen> {
         leading: null,
         actions: <Widget>[
           IconButton(
-              icon: Icon(Icons.close),
+              icon: SvgPicture.asset(
+                'images/sign-out-svgrepo-com.svg',
+                color: Colors.white,
+              ),
               onPressed: () {
                 _auth.signOut();
                 Navigator.pop(context);

@@ -1,5 +1,5 @@
 // @dart=2.9
-import 'package:chatapp/screens/log_screen.dart';
+
 import 'package:chatapp/screens/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';

@@ -170,9 +170,10 @@ class _LogScreenState extends State<LogScreen>
                                           Text(
                                             e.toString(),
                                             style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 16,
-                                                fontWeight: FontWeight.w600),
+                                              color: Colors.white,
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.w600,
+                                            ),
                                             maxLines: 2,
                                             overflow: TextOverflow.ellipsis,
                                           ),

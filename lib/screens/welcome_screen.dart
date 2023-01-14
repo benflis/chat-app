@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:modal_progress_hud/modal_progress_hud.dart';
-import '../widgets/Button.dart';
+
 import 'Reg_screen.dart';
 import 'log_screen.dart';
 

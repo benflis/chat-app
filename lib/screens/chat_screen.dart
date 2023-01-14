@@ -30,13 +30,13 @@ class _ChatScreenState extends State<ChatScreen> {
     }
   }
 
-  void messagesStream() async {
-    await for (var snapshot in _fireStore.collection('messages').snapshots()) {
-      for (var S in snapshot.docs) {
-        print(S.data());
-      }
-    }
-  }
+  // void messagesStream() async {
+  //   await for (var snapshot in _fireStore.collection('messages').snapshots()) {
+  //     for (var S in snapshot.docs) {
+  //       print(S.data());
+  //     }
+  //   }
+  // }
 
   @override
   void initState() {
@@ -80,7 +80,7 @@ class _ChatScreenState extends State<ChatScreen> {
                     child: TextField(
                       controller: messageTextController,
                       onChanged: (value) {
-                        textMessage = value; //Do something with the user input.
+                        textMessage = value;
                       },
                       decoration: kMessageTextFieldDecoration,
                     ),
